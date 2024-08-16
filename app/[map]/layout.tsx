@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import '@TAILWINDCSS'
+
 
 const inter = Inter({ subsets: ["vietnamese"] });
 
 export const metadata: Metadata = {
-  title: "Modding God Hand",
+  title: "eoeoeo",
   description: "merubah jumlah atau replace musuh",
 };
 
-export default function RootLayout({
+export default function MapLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

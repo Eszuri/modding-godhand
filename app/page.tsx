@@ -1,6 +1,6 @@
 import GodHandDataTypes from "types/godHandDataTypes";
-import { fetchDataGodHand } from "./api/route"
 import Link from "next/link";
+import { fetchDataGodHand } from "lib/fetchDataGodHand";
 
 const Mapping = async ({ stage }: { stage: number }) => {
     const data: GodHandDataTypes = await fetchDataGodHand();

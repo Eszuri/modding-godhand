@@ -25,12 +25,15 @@ export default function CloudinaryMap({ cloudinaryData }: { cloudinaryData: any 
     };
 
     useEffect(() => {
-        if (window.localStorage.getItem('grid-image') == null || undefined) {
-            window.localStorage.setItem('grid-image', String(count))
-        } else {
-            setCount(Number(window.localStorage.getItem('grid-image')))
-        }
-    }, [])
+    const storedCount = window.localStorage.getItem('grid-image');
+    if (storedCount) {
+        setCount(Number(storedCount));
+    } else {
+        window.localStorage.setItem('grid-image', String(count));
+    }
+    // Empty dependency array since this should only run once on component mount
+}, [count,setCount]);
+
 
     return (
         <div className="grid">

@@ -1,7 +1,7 @@
-import { fetchDataUrlCloudinary } from "app/api/cloudinary/route";
-import { fetchDataGodHand } from "app/api/route";
 import { metadata } from "app/layout";
 import MapClientComponent from "components/map/mapClientComponent";
+import { fetchDataGodHand } from "lib/fetchDataGodHand";
+import { fetchDataUrlCloudinary } from "lib/fetchDataUrlCloudinary";
 import GodHandDataTypes from "types/godHandDataTypes";
 
 export default async function MapPage({ params }: { params: { map: string } }) {

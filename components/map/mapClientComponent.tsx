@@ -38,15 +38,16 @@ export default function MapClientComponent({
     const metadataDescription: any = godhandData.map((x) => { return x.navigation.description })
 
     useEffect(() => {
-        setTitle("metadataTitle")
-        setDescription(metadataDescription)
-        const isValidPath = godhandData.some((x) => x.navigation.path === window.location.pathname);
-        if (!isValidPath) {
-            router.push('/404');
-        } else {
-            setFinishLoad(false);
-        }
-    }, [godhandData]);
+    setTitle("metadataTitle");
+    setDescription(metadataDescription);
+    const isValidPath = godhandData.some((x) => x.navigation.path === window.location.pathname);
+    if (!isValidPath) {
+        router.push('/404');
+    } else {
+        setFinishLoad(false);
+    }
+}, [godhandData, metadataDescription, router, setTitle, setDescription]);
+
 
 
     const DownloadComponent = ({ text, cloud, date, size, namefile }: { text: string, cloud: any, date: any, size: any, namefile: any }) => {
@@ -58,7 +59,7 @@ export default function MapClientComponent({
     return (
         <section className="w-[95%] mr-auto ml-auto mt-10" style={{ display: FinishLoad ? "none" : "block" }}>
             <div className="mb-32">
-                <H1MapClientComponent>Tempat Yg Di Mod {title}</H1MapClientComponent>
+                <H1MapClientComponent>Tempat Yg Di Mod</H1MapClientComponent>
                 <ul>
                     {godhandData.map((item, index) => (
                         item.content.location.map((loc, locIndex) => (

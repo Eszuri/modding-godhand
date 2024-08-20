@@ -1,13 +1,10 @@
+// import { fetchDataGodHand } from "app/api/route";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
+// import MetadataState from "store/metadataStore"
+// import GridImageState from "store/gridStore"
 
 const inter = Inter({ subsets: ["vietnamese"] });
-
-export const metadata: Metadata = {
-  title: "eoeoeo",
-  description: "merubah jumlah atau replace musuh",
-};
 
 export default function MapLayout({
   children,

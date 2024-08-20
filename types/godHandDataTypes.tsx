@@ -6,7 +6,8 @@ interface Navigation {
 
 interface Content {
     stage: number;
-    location: string;
+    location: [];
+    moddings: [];
     filename: string;
 }
 

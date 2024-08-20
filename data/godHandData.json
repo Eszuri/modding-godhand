@@ -7,19 +7,14 @@
         },
         "content": {
             "stage": 1,
-            "location": "berada di stage 1",
-            "filename": "r100.dat"
-        }
-    },
-    {
-        "navigation": {
-            "title": "woi",
-            "description": "lorem ipsum dolor sit amet",
-            "path": "/"
-        },
-        "content": {
-            "stage": 2,
-            "location": "berada di stage 1",
+            "location": [
+                "Berada di stage 1.",
+                "Map paling awal / pertama kali."
+            ],
+            "moddings": [
+                "semua musuh diubah menjadi ????",
+                "semua musuh membawa senjata ????"
+            ],
             "filename": "r100.dat"
         }
     }

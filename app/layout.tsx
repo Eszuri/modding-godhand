@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["vietnamese"] });
 export const metadata: Metadata = {
   title: "Modding God Hand",
   description: "merubah jumlah atau replace musuh",
+  icons:'/next.svg'
 };
 
 export default function RootLayout({

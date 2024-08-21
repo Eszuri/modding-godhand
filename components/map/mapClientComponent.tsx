@@ -45,13 +45,7 @@ export default function MapClientComponent({
     }
 }, [godhandData]);
 
-
-
-    const DownloadComponent = ({ text, cloud, date, size, namefile }: { text: string, cloud: any, date: any, size: any, namefile: any }) => {
-        return (
-            <div className="grid w-36 gap-3 overflow-visible"><div className="flex justify-start gap-2 items-center"><div className="overflow-visible max-w-[85px] min-w-[85px]"><span className={`mt-5 mb-3 inline-block text-nowrap ${amaranth.className}`}>{text}</span><DAT_Icon className="w-24 flex justify-start -ml-3" /><span>{namefile}</span></div><div className="flex flex-col justify-start text-nowrap"><span>size: {size}</span><span>Created: {date}</span></div></div>{cloud.data.map((x: any, index: number) => { const downloadFile = async () => { const response = await fetch(x); const blob = await response.blob(); const link = document.createElement('a'); link.href = window.URL.createObjectURL(blob); link.download = `${namefile}`; link.click(); }; return (<button onClick={downloadFile} key={index} className="w-full bg-gradient-to-b from-cyan-800 to-sky-800 rounded hover:scale-[0.98] h-10 flex justify-center items-center">DOWNLOAD</button>); })}</div>
-        )
-    }
+    const DownloadComponent = ({ text, cloud, date, size, namefile }: { text: string, cloud: any, date: any, size: any, namefile: any }) => {return (<div className="grid w-36 gap-3 overflow-visible"><div className="flex justify-start gap-2 items-center"><div className="overflow-visible max-w-[85px] min-w-[85px]"><span className={`mt-5 mb-3 inline-block text-nowrap ${amaranth.className}`}>{text}</span><DAT_Icon className="w-24 flex justify-start -ml-3" /><span>{namefile+".dat"}</span></div><div className="flex flex-col justify-start text-nowrap"><span>size: {size}</span><span>Created: {date}</span></div></div><a href={`https://res.cloudinary.com/dwi9ltvmr/raw/upload/fl_attachment:${namefile}/v${cloud.version}/${cloud.public_id}`} className="w-full bg-gradient-to-b from-cyan-800 to-sky-800 rounded hover:scale-[0.98] h-10 flex justify-center items-center" download={true}>DOWNLOAD</a></div>)};
 
     return (
         <section className="w-[95%] mr-auto ml-auto mt-10" style={{ display: FinishLoad ? "none" : "block" }}>
@@ -81,10 +75,10 @@ export default function MapClientComponent({
                 <H1MapClientComponent>Link Download</H1MapClientComponent>
                 <div className="flex w-full flex-wrap">
                     <div className="w-1/2 max-[600px]:w-full max-[600px]:border-b-2 max-[600px]:mb-7 max-[600px]:pb-10">
-                        <DownloadComponent text="file mod" cloud={cloudinaryDataFileMod} date={createdDateMOD} size={sizeFileMod > 1024 ? sizeFileModINMB.toFixed(2) + " mb" : sizeFileMod.toFixed(2) + " kb"} namefile={filename} />
+                        <DownloadComponent text="file mod" cloud={cloudinaryDataFileMod} date={createdDateMOD} size={sizeFileMod > 1024 ? sizeFileModINMB.toFixed(2) + " mb" : sizeFileMod.toFixed(2) + " kb"} namefile={window.location.pathname.slice(1)} />
                     </div>
                     <div className="w-1/2 max-[600px]:w-full">
-                        <DownloadComponent text="file backup / original" cloud={cloudinaryDataFileBackup} date={createdDateBACKUP} size={sizeFileBackup > 1024 ? sizeFileBackupINMB.toFixed(2) + " mb" : sizeFileBackup.toFixed(2) + " kb"} namefile={filename + '.backup'} />
+                        <DownloadComponent text="file backup / original" cloud={cloudinaryDataFileBackup} date={createdDateBACKUP} size={sizeFileBackup > 1024 ? sizeFileBackupINMB.toFixed(2) + " mb" : sizeFileBackup.toFixed(2) + " kb"} namefile={window.location.pathname.slice(1)+"_BACKUP"} />
                     </div>
                 </div>
             </div>

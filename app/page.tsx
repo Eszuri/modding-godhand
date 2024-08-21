@@ -8,7 +8,7 @@ const Mapping = async ({ stage }: { stage: number }) => {
         <ul>
             {data
                 .filter((x) => x.content.stage == stage)
-                .map((x, index) => (<li className="list-decimal underline text-lg p-2" key={index}><Link href={x.navigation.path} className="">{x.navigation.title}</Link></li>))}
+                .map((x, index) => (<li className="list-decimal list-inside underline text-lg" key={index}><Link href={x.navigation.path} className="">{x.navigation.title}</Link></li>))}
         </ul>
     )
 }

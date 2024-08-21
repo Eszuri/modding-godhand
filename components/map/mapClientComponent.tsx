@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import GodHandDataTypes from "types/godHandDataTypes";
 import CloudinaryMap from "./CloudinaryMap";
 import DAT_Icon from "assets/icons/datfile";
-import MetadataState from "store/metadataStore";
 import { Titillium_Web } from "next/font/google";
 
 const amaranth = Titillium_Web({ subsets: ["latin"], weight: "700" });
@@ -17,14 +16,14 @@ export default function MapClientComponent({
     cloudinaryDataFileMod,
     cloudinaryDataFileBackup,
 }:
-    {
+    {   
         godhandData: GodHandDataTypes,
         cloudinaryDataPlaceMod: any,
         cloudinaryDataModdings: any
         cloudinaryDataFileMod: any
         cloudinaryDataFileBackup: any
     }) {
-    const { title, setTitle, setDescription } = MetadataState()
+    
     const router = useRouter();
     const [FinishLoad, setFinishLoad] = useState(true);
     const filename = godhandData.map((x) => { return x.content.filename });
@@ -36,17 +35,15 @@ export default function MapClientComponent({
     const createdDateBACKUP = JSON.stringify(cloudinaryDataFileBackup.createdDate).slice(2, 12);
     const metadataTitle: any = godhandData.map((x) => { return x.navigation.title })
     const metadataDescription: any = godhandData.map((x) => { return x.navigation.description })
-
+    
     useEffect(() => {
-    setTitle("metadataTitle");
-    setDescription(metadataDescription);
     const isValidPath = godhandData.some((x) => x.navigation.path === window.location.pathname);
     if (!isValidPath) {
         router.push('/404');
     } else {
         setFinishLoad(false);
     }
-}, [godhandData, metadataDescription, router, setTitle, setDescription]);
+}, [godhandData]);
 
 
 

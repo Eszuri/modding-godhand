@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Disallow: /api
+
+# Host
+Host: https://modding-godhand.vercel.app
+
+# Sitemaps
+Sitemap: https://modding-godhand.vercel.app/sitemap.xml
